@@ -55,6 +55,10 @@ app.post('/sms', function(req, res) {
   res.end(twiml.toString());
 });
 
+app.post('/fail', function(req, res) {
+  console.log("Failed");
+});
+
 /*    
 app.post('/registered', function(req, res) {
 
@@ -105,13 +109,13 @@ app.post('/submitted', function(req, res) {
     if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
       console.log(msg, num);
 
-      const accountSid = 'ACf73156c3674a1e76ea44411d91bd4abb';
-      const authToken = '0a26aff0ef5fbd3b94deb0f39a90ac79';
+      const accountSid = 'AC8585ffe45f82349c213ec86fcef36696';
+      const authToken = '38cb619ed64c90a5a4a116ac21032885';
       const twil = require('twilio')(accountSid, authToken);
       twil.messages
         .create({
            body: msg,
-           from: '+12568889318',
+           from: '+12017012807',
            to: '+1' + num,
          })
         .then(res.redirect('/')); //message => console.log(message.status));
