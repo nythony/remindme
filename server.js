@@ -53,6 +53,8 @@ app.post('/sms', function(req, res) {
   var num = req.body.From;
   var content = req.body.Body;
 
+  console.log ("num = " + num + " and content is = " + content);
+
   if (content == 'OK'){
     var promise1 = new Promise(function(resolve, reject) {
       var twilio = require('twilio');
