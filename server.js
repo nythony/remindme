@@ -65,7 +65,19 @@ app.post('/sms', function(req, res) {
           }
           
           else{
-            for (let row of results.rows) { //Only one record
+
+            if (results.rows.length == 0)
+              {
+                var twilio = require('twilio');
+                var twiml = new twilio.twiml.MessagingResponse();
+                twiml.message('Your number has been successfully registered with RemindMe!');
+                res.writeHead(200, {'Content-Type': 'text/xml'});
+                res.end(twiml.toString());
+                console.log("here second");
+                resolve(num);
+              }
+            else{
+              for (let row of results.rows) { //Only one record
               console.log("num should be " + row["phonenum"] + " and pass is " + row["pass"]);
 
               if (row["phonenum"] != num && row["pass"] != null) {
@@ -88,6 +100,7 @@ app.post('/sms', function(req, res) {
                 
                 resolve("No");
               }
+            }
 
           }
 
