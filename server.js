@@ -316,7 +316,7 @@ app.post('/regpass', function(req, res) {
 
               if (row["phonenum"] == num && row["pass"] == null) {
 
-                client.query('UPDATE RegNum SET pass = \'' + pass + '\' WHERE phonenum = \'' + num '\';', (err, res) => {
+                client.query('UPDATE RegNum SET pass =  \''+pass+'\' WHERE phonenum =  \''+ num+'\';', (err, res) => {
                   if (err) throw err;
                   for (let row of res.rows) {
                     console.log('NEW NUMBER SET UP');
@@ -332,8 +332,10 @@ app.post('/regpass', function(req, res) {
             }
 
           }
+        }
 
-      }
+      })
+    }
     else{
       console.log("Use a team member's phone number");
       res.redirect('/');
