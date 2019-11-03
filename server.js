@@ -50,12 +50,12 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  console.log("We are getting here");
+  console.log("req is" + req.toString());
 
   var promise1 = new Promise(function(resolve, reject) {
     var twilio = require('twilio');
-    var twiml = new twilio.twiml.MessagigResponse();
-    twiml.message('The Robots are coming! Head for the hills!');
+    var twiml = new twilio.twiml.MessagingResponse();
+    twiml.message('You number has been successfully registered with RemindMe!');
     res.writeHead(200, {'Content-Type': 'text/xml'});
     res.end(twiml.toString());
     resolve(twiml.toString());
@@ -75,6 +75,7 @@ app.post('/sms', function(req, res) {
 
 app.post('/fail', function(req, res) {
   console.log("Failed");
+  res.redirect('/');
 });
 
 /*    
