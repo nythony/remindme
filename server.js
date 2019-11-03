@@ -318,6 +318,8 @@ app.post('/regpass', function(req, res) {
               var dbpass = row["pass"] 
 
               console.log(dbnum + ' and ' + dbpass);
+              console.log(dbnum == num);
+              console.log(dbpass == undefined);
 
               if (dbnum == num && dbpass == undefined) {
                 console.log("true");
