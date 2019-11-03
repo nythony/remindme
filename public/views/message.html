@@ -4,7 +4,10 @@
 
 <h2>HTML Forms</h2>
 
-<form id="mymsg" action="/submitted" method = "post" action="/">
+<form id="mymsg" action="/submitted" method = "post">
+  <label for="num"><b>Enter the phone number: +1 </b></label>
+  <input type="tel" placeholder="Enter your phone number" pattern="[0-9]{10}" name="num" required>
+
   <label for="msg"><b>Enter your text message: </b></label>
   <input type="text" placeholder="Enter your message" name="msg" required>
   <input type="submit" value="Submit">

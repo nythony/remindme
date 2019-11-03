@@ -67,18 +67,28 @@ app.get('/message',(req,res)=>{
 });
 
 app.post('/submitted', function(req, res) {
+
     var msg = req.body.msg;
-    console.log(msg);
-    const accountSid = 'ACc5a568508001a6ed52d2f422adfee095';
-    const authToken = '77f047ecf095d17afc433a0dfd08db99';
-    const twil = require('twilio')(accountSid, authToken);
-    twil.messages
-      .create({
-         body: msg,
-         from: '+12014823454',
-         to: '+17816020871',
-       })
-      .then(message => console.log(message.status));
+    var num = req.body.num;
+
+    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num ==6504306882){
+      console.log(msg, num);
+
+      const accountSid = 'ACf73156c3674a1e76ea44411d91bd4abb';
+      const authToken = '0a26aff0ef5fbd3b94deb0f39a90ac79';
+      const twil = require('twilio')(accountSid, authToken);
+      twil.messages
+        .create({
+           body: msg,
+           from: '+12568889318',
+           to: '+1' + num,
+         })
+        .then(res.redirect('/')); //message => console.log(message.status));
+      }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
 });
 
 
