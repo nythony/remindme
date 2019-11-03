@@ -288,31 +288,61 @@ app.get('/accountsetup_simple',(req,res)=>{
 });
 
 
-//needs verification
-// app.post('/regpass', function(req, res) {
 
-//     var num = req.body.num;
+app.post('/regpass', function(req, res) {
 
-//     if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
-//       console.log(num);
+    var num = req.body.num;
+    var pass = req.body.password;
 
-//       const accountSid = 'AC8585ffe45f82349c213ec86fcef36696';
-//       const authToken = '38cb619ed64c90a5a4a116ac21032885';
-//       const twil = require('twilio')(accountSid, authToken);
-//       twil.messages
-//         .create({
-//            body: "In order to register your phone number, please send 'OK' and wait for a response.",
-//            from: '+12017012807',
-//            to: '+1' + num,
-//          })
-//         .then(res.redirect('/accountsetup_simple')); //accountSetup.html will set up password (NEED A app.get)
-//       }
-//     else{
-//       console.log("Use a team member's phone number");
-//       res.redirect('/');
-//     }
-// });
+    console.log("num is " + num + " and pass is " + pass);
 
+    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
+      
+
+        client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
+          if (error){
+            console.log(error);
+          }
+          
+          else{
+
+            if (results.rows.length == 0)
+              {
+                res.redirect('/register_errormsg');
+              }
+            else{
+              for (let row of results.rows) { //Only one record
+              console.log("num in DB is " + row["phonenum"] + " and pass is " + row["pass"]);
+
+              if (row["phonenum"] == num && row["pass"] == null) {
+
+                client.query('client.query('UPDATE RegNum SET pass = \'' + pass + '\' WHERE phonenum = \'' + num '\';', (err, res) => {
+                  if (err) throw err;
+                  for (let row of res.rows) {
+                    console.log('NEW NUMBER SET UP');
+                  }
+                  client.end();
+                });
+              }
+            
+              //The client has already registered this phone number
+              else {
+                res.redirect('/register_errormsg')
+              }
+            }
+
+          }
+
+      }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
+});
+
+app.get('/register_errormsg',(req,res)=>{
+    res.render('log_in_page.html');
+});
 
 app.get('/log_in_page',(req,res)=>{
     res.render('log_in_page.html');
