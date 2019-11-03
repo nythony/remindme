@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<h2>Account Setup</h2>
+
+<form id="myacct" action="/regpass" method = "post">
+  <label for="num"><b>Enter your phone number: +1 </b></label>
+  <input type="tel" placeholder="Enter your phone number" pattern="[0-9]{10}" name="num" required>
+
+<br>
+
+  <label for="pass"><b>Create a password: </b></label>
+  <input type="password" placeholder="Password" name="pass" id="password" onkeyup='check();' required>
+
+
+  <input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>

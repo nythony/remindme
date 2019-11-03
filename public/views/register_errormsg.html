@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Register a phone number</title>
+</head>
+<body>
+
+	
+	
+<!--Sending verification message to phone number-->
+	<form id="mymsg" action="/sendVerification" method = "post">
+	  <label for="num"><b>Enter the phone number: +1 </b></label>
+	  <input type="tel" placeholder="Enter your phone number" pattern="[0-9]{10}" name="num" required>
+
+	  <input type="submit" value="Submit">
+	</form> 
+
+<!--Warning msg: you have to verify-->
+    <strong>Sorry!</strong> Please verify your phone number first by texting back "OK".
+
+
+</body>
+</html>

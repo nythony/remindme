@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<title>homepage</title>
+<title>dashboard</title>
 <style id="applicationStylesheet" type="text/css">
 	.mediaViewInfo {
-		--web-view-name: homepage;
-		--web-view-id: homepage;
+		--web-view-name: dashboard;
+		--web-view-id: dashboard;
 		--web-scale-to-fit: true;
 		--web-scale-to-fit-type: fit;
 		--web-enable-scale-up: true;
@@ -18,7 +17,7 @@
 		--web-enable-deep-linking: true;
 	}
 	:root {
-		--web-view-ids: homepage;
+		--web-view-ids: dashboard;
 	}
 	* {
 		margin: 0;
@@ -26,7 +25,7 @@
 		box-sizing: border-box;
 		border: none;
 	}
-	#homepage {
+	#dashboard {
 		position: absolute;
 		box-sizing: border-box;
 		transform: translateX(-50%) translateY(-50%);
@@ -37,8 +36,8 @@
 		height: 1080px;
 		background-color: rgba(255,255,255,1);
 		overflow: hidden;
-		--web-view-name: homepage;
-		--web-view-id: homepage;
+		--web-view-name: dashboard;
+		--web-view-id: dashboard;
 		--web-scale-to-fit: true;
 		--web-scale-to-fit-type: fit;
 		--web-enable-scale-up: true;
@@ -51,14 +50,14 @@
 		position: absolute;
 		overflow: visible;
 		width: 1920px;
-		height: 229px;
+		height: 174px;
 		left: 0px;
 		top: 0px;
 	}
 	#Remind_Me {
 		position: absolute;
-		left: 760px;
-		top: 74px;
+		left: 162px;
+		top: 31px;
 		overflow: visible;
 		width: 427px;
 		white-space: nowrap;
@@ -69,89 +68,339 @@
 		font-size: 80px;
 		color: rgba(112,112,112,1);
 	}
-	#About {
+	.Rectangle_11 {
 		position: absolute;
-		left: 148px;
-		top: 440px;
 		overflow: visible;
-		width: 152px;
+		width: 255px;
+		height: 906px;
+		left: 0px;
+		top: 174px;
+	}
+	.Path_1 {
+		overflow: visible;
+		position: absolute;
+		width: 1665px;
+		height: 906px;
+		left: 255px;
+		top: 174px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Dashboard {
+		position: absolute;
+		left: 91px;
+		top: 223px;
+		overflow: visible;
+		width: 148px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Century Gothic;
+		font-family: Circular Std;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 50px;
+		font-size: 30px;
 		color: rgba(102,102,102,1);
 	}
-	#Login {
+	#Reminder {
 		position: absolute;
-		left: 148px;
-		top: 329px;
+		left: 101px;
+		top: 293px;
 		overflow: visible;
 		width: 131px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Century Gothic;
+		font-family: Circular Std;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 50px;
+		font-size: 30px;
 		color: rgba(102,102,102,1);
 	}
-	#Contact_Us {
+	#Reminders {
 		position: absolute;
-		left: 148px;
-		top: 551px;
+		left: 343px;
+		top: 208px;
 		overflow: visible;
-		width: 271px;
+		width: 161px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Century Gothic;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#Today {
+		position: absolute;
+		left: 343px;
+		top: 575px;
+		overflow: visible;
+		width: 101px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Century Gothic;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#Add_a_new_reminder {
+		position: absolute;
+		left: 1606px;
+		top: 1015px;
+		overflow: visible;
+		width: 303px;
 		white-space: nowrap;
 		text-align: left;
 		font-family: Century Gothic;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 50px;
+		font-size: 30px;
 		color: rgba(102,102,102,1);
 	}
-	#Message {
+	#Illustration {
 		position: absolute;
-		left: 148px;
-		top: 662px;
+		width: 160px;
+		height: 160px;
+		left: 371px;
+		top: 278px;
 		overflow: visible;
-		width: 219px;
+	}
+	#illustration {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Ellipse_243 {
+		position: absolute;
+		overflow: visible;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+	}
+	.Path_234 {
+		overflow: visible;
+		position: absolute;
+		width: 80px;
+		height: 136.6px;
+		left: 80px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Mom_s_Medication {
+		position: absolute;
+		left: 315px;
+		top: 466px;
+		overflow: visible;
+		width: 274px;
 		white-space: nowrap;
 		text-align: left;
 		font-family: Century Gothic;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 50px;
+		font-size: 30px;
 		color: rgba(102,102,102,1);
 	}
-	#Register {
+	#Illustration_A1_Group_3 {
 		position: absolute;
-		left: 148px;
-		top: 773px;
+		width: 160px;
+		height: 160px;
+		left: 1011px;
+		top: 278px;
 		overflow: visible;
-		width: 192px;
+	}
+	#illustration_A1_Group_4 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Ellipse_243_A1_Ellipse_2 {
+		position: absolute;
+		overflow: visible;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+	}
+	.Path_234_A1_Path_3 {
+		overflow: visible;
+		position: absolute;
+		width: 80px;
+		height: 136.6px;
+		left: 80px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Illustration_A1_Group_5 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 1578px;
+		top: 278px;
+		overflow: visible;
+	}
+	#illustration_A1_Group_6 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Ellipse_243_A1_Ellipse_3 {
+		position: absolute;
+		overflow: visible;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+	}
+	.Path_234_A1_Path_4 {
+		overflow: visible;
+		position: absolute;
+		width: 80px;
+		height: 136.6px;
+		left: 80px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#November_Workout {
+		position: absolute;
+		left: 949px;
+		top: 466px;
+		overflow: visible;
+		width: 284px;
 		white-space: nowrap;
 		text-align: left;
 		font-family: Century Gothic;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 50px;
+		font-size: 30px;
 		color: rgba(102,102,102,1);
 	}
-	#Account_Setup {
+	#Meal_Prep {
 		position: absolute;
-		left: 148px;
-		top: 884px;
+		left: 1594px;
+		top: 466px;
 		overflow: visible;
-		width: 366px;
+		width: 149px;
 		white-space: nowrap;
 		text-align: left;
 		font-family: Century Gothic;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 50px;
+		font-size: 30px;
 		color: rgba(102,102,102,1);
+	}
+	.Rectangle_22 {
+		position: absolute;
+		overflow: visible;
+		width: 1366px;
+		height: 82px;
+		left: 343px;
+		top: 639px;
+	}
+	.Rectangle_23 {
+		position: absolute;
+		overflow: visible;
+		width: 1366px;
+		height: 97px;
+		left: 343px;
+		top: 808px;
+	}
+	#Mom_s_Medication_7_00_PM {
+		position: absolute;
+		left: 464px;
+		top: 669px;
+		overflow: visible;
+		width: 362px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#November_Workout_5_00_PM {
+		position: absolute;
+		left: 464px;
+		top: 849px;
+		overflow: visible;
+		width: 379px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	.Icon_awesome_check_circle {
+		overflow: visible;
+		position: absolute;
+		width: 58.125px;
+		height: 58.125px;
+		left: 364px;
+		top: 835px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Icon_material_radio_button_unc {
+		overflow: visible;
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 364px;
+		top: 654px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Icon_material_add_alarm {
+		overflow: visible;
+		position: absolute;
+		width: 85.148px;
+		height: 85.744px;
+		left: 1726.852px;
+		top: 923.369px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Icon_awesome_user_secret {
+		overflow: visible;
+		position: absolute;
+		width: 84.578px;
+		height: 96.657px;
+		left: 1775.573px;
+		top: 35.343px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Icon_material_dashboard {
+		overflow: visible;
+		position: absolute;
+		width: 45px;
+		height: 45px;
+		left: 25px;
+		top: 216px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Icon_material_access_alarm {
+		overflow: visible;
+		position: absolute;
+		width: 50px;
+		height: 50.35px;
+		left: 27px;
+		top: 280px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Ellipse_2 {
+		position: absolute;
+		overflow: visible;
+		width: 137px;
+		height: 138px;
+		left: 1748px;
+		top: 19px;
 	}
 </style>
 <script id="applicationScript">
@@ -1866,32 +2115,124 @@ window.application = new Application();
 </script>
 </head>
 <body>
-<div id="homepage" class="">
+<div id="dashboard" class="">
 	<svg class="Rectangle_1">
-		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="1920" height="229">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="1920" height="174">
 		</rect>
 	</svg>
 	<div id="Remind_Me">
 		<span>Remind Me</span>
 	</div>
-	<div id="About">
-		<span><a href="/about">About</a></span>
+	<svg class="Rectangle_11">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_11" rx="0" ry="0" x="0" y="0" width="255" height="906">
+		</rect>
+	</svg>
+	<svg class="Path_1" viewBox="0 0 1665 906">
+		<path fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Path_1" d="M 0 0 L 1665 0 L 1665 906 L 0 906 L 0 0 Z">
+		</path>
+	</svg>
+	<div id="Dashboard">
+		<span>Dashboard</span>
 	</div>
-	<div id="Login">
-		<span><a href="/login">Login</a></span>	
+	<div id="Reminder">
+		<span>Reminder</span>
 	</div>
-	<div id="Contact_Us">
-		<span></span><a href="/contact">Contact Us</a></span>
+	<div id="Reminders">
+		<span>Reminders</span>
 	</div>
-	<div id="Message">
-		<span><a href="/message">Message</a></span>
+	<div id="Today">
+		<span>Today</span>
 	</div>
-	<div id="Register">
-		<span><a href="/register">Register</a></span>
+	<div id="Add_a_new_reminder">
+		<span>Add a new reminder</span>
 	</div>
-	<div id="Account_Setup">
-		<span><a href="/accountsetup">Account Setup</a></span>
+	<div id="Illustration">
+		<div id="illustration">
+			<svg class="Ellipse_243">
+				<ellipse fill="rgba(188,224,253,1)" id="Ellipse_243" rx="80" ry="80" cx="80" cy="80">
+				</ellipse>
+			</svg>
+			<svg class="Path_234" viewBox="80 0 80 136.6">
+				<path fill="rgba(38,153,251,1)" id="Path_234" d="M 80 0 L 80 80 L 136.6000061035156 136.6000061035156 C 151 122.0999984741211 160 102.0999984741211 160 80 C 160 35.79999923706055 124.1999969482422 0 80 0 Z">
+				</path>
+			</svg>
+		</div>
 	</div>
+	<div id="Mom_s_Medication">
+		<span>Mom’s Medication</span>
+	</div>
+	<div id="Illustration_A1_Group_3">
+		<div id="illustration_A1_Group_4">
+			<svg class="Ellipse_243_A1_Ellipse_2">
+				<ellipse fill="rgba(188,224,253,1)" id="Ellipse_243_A1_Ellipse_2" rx="80" ry="80" cx="80" cy="80">
+				</ellipse>
+			</svg>
+			<svg class="Path_234_A1_Path_3" viewBox="80 0 80 136.6">
+				<path fill="rgba(38,153,251,1)" id="Path_234_A1_Path_3" d="M 80 0 L 80 80 L 136.6000061035156 136.6000061035156 C 151 122.0999984741211 160 102.0999984741211 160 80 C 160 35.79999923706055 124.1999969482422 0 80 0 Z">
+				</path>
+			</svg>
+		</div>
+	</div>
+	<div id="Illustration_A1_Group_5">
+		<div id="illustration_A1_Group_6">
+			<svg class="Ellipse_243_A1_Ellipse_3">
+				<ellipse fill="rgba(188,224,253,1)" id="Ellipse_243_A1_Ellipse_3" rx="80" ry="80" cx="80" cy="80">
+				</ellipse>
+			</svg>
+			<svg class="Path_234_A1_Path_4" viewBox="80 0 80 136.6">
+				<path fill="rgba(38,153,251,1)" id="Path_234_A1_Path_4" d="M 80 0 L 80 80 L 136.6000061035156 136.6000061035156 C 151 122.0999984741211 160 102.0999984741211 160 80 C 160 35.79999923706055 124.1999969482422 0 80 0 Z">
+				</path>
+			</svg>
+		</div>
+	</div>
+	<div id="November_Workout">
+		<span>November Workout</span>
+	</div>
+	<div id="Meal_Prep">
+		<span>Meal Prep</span>
+	</div>
+	<svg class="Rectangle_22">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_22" rx="0" ry="0" x="0" y="0" width="1366" height="82">
+		</rect>
+	</svg>
+	<svg class="Rectangle_23">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_23" rx="0" ry="0" x="0" y="0" width="1366" height="97">
+		</rect>
+	</svg>
+	<div id="Mom_s_Medication_7_00_PM">
+		<span>Mom’s Medication 7:00 PM</span>
+	</div>
+	<div id="November_Workout_5_00_PM">
+		<span>November Workout 5:00 PM</span>
+	</div>
+	<svg class="Icon_awesome_check_circle" viewBox="0.938 0.938 58.125 58.125">
+		<path fill="rgba(0,0,0,0.702)" id="Icon_awesome_check_circle" d="M 59.0625 30 C 59.0625 46.05081939697266 46.05081939697266 59.0625 30 59.0625 C 13.94918060302734 59.0625 0.9375 46.05081939697266 0.9375 30 C 0.9375 13.94918060302734 13.94917964935303 0.9375 30 0.9375 C 46.05081939697266 0.9375 59.0625 13.94917964935303 59.0625 30 Z M 26.63835906982422 45.38835906982422 L 48.20085906982422 23.82585906982422 C 48.93304824829102 23.09367179870605 48.93304824829102 21.90644454956055 48.20085906982422 21.17425727844238 L 45.54925918579102 18.52265548706055 C 44.81707000732422 17.79034996032715 43.62984466552734 17.79034996032715 42.89754104614258 18.52265548706055 L 25.3125 36.10757827758789 L 17.10246086120605 27.89753913879395 C 16.37027359008789 27.16535186767578 15.18304634094238 27.16535186767578 14.4507417678833 27.89753913879395 L 11.79913997650146 30.54914093017578 C 11.0669527053833 31.28132820129395 11.0669527053833 32.46855545043945 11.79913997650146 33.20074081420898 L 23.98664093017578 45.38824081420898 C 24.71894645690918 46.12054443359375 25.90605545043945 46.12054443359375 26.63835906982422 45.38835906982422 Z">
+		</path>
+	</svg>
+	<svg class="Icon_material_radio_button_unc" viewBox="5 5 50 50">
+		<path fill="rgba(0,0,0,0.702)" id="Icon_material_radio_button_unc" d="M 30 5 C 16.20000076293945 5 5 16.20000076293945 5 30 C 5 43.79999923706055 16.20000076293945 55 30 55 C 43.79999923706055 55 55 43.79999923706055 55 30 C 55 16.20000076293945 43.79999923706055 5 30 5 Z M 30 50 C 18.95000076293945 50 10 41.04999923706055 10 30 C 10 18.95000076293945 18.95000076293945 10 30 10 C 41.04999923706055 10 50 18.95000076293945 50 30 C 50 41.04999923706055 41.04999923706055 50 30 50 Z">
+		</path>
+	</svg>
+	<svg class="Icon_material_add_alarm" viewBox="5 4.65 85.148 85.744">
+		<path fill="rgba(0,0,0,0.702)" id="Icon_material_add_alarm" d="M 30.03361320495605 11.16384983062744 L 24.58411979675293 4.65000057220459 L 5.000000953674316 21.04105377197266 L 10.49207019805908 27.55490112304688 L 30.03361320495605 11.16384983062744 Z M 90.14835357666016 21.0836296081543 L 79.84143829345703 12.43478775024414 L 70.56422424316406 4.650001525878906 L 65.07215881347656 11.16384983062744 L 84.65628051757812 27.59747505187988 L 90.14835357666016 21.0836296081543 Z M 47.57416915893555 13.76087379455566 C 26.41481018066406 13.76087379455566 9.257417678833008 30.91826248168945 9.257417678833008 52.0776252746582 C 9.257417678833008 73.23698425292969 26.37223243713379 90.39437866210938 47.57416915893555 90.39437866210938 C 68.73353576660156 90.39437866210938 85.89093017578125 73.23698425292969 85.89093017578125 52.0776252746582 C 85.89093017578125 30.91826248168945 68.73353576660156 13.76087379455566 47.57416915893555 13.76087379455566 Z M 47.57416915893555 81.87954711914062 C 31.09796905517578 81.87954711914062 17.77225112915039 68.55382537841797 17.77225112915039 52.0776252746582 C 17.77225112915039 35.60142135620117 31.09796905517578 22.27570533752441 47.57416915893555 22.27570533752441 C 64.05038452148438 22.27570533752441 77.3760986328125 35.60142135620117 77.3760986328125 52.0776252746582 C 77.3760986328125 68.55382537841797 64.05038452148438 81.87954711914062 47.57416915893555 81.87954711914062 Z M 51.83158493041992 35.04795837402344 L 43.31675338745117 35.04795837402344 L 43.31675338745117 47.82020568847656 L 30.54450607299805 47.82020568847656 L 30.54450607299805 56.33504104614258 L 43.31675338745117 56.33504104614258 L 43.31675338745117 69.10729217529297 L 51.83158493041992 69.10729217529297 L 51.83158493041992 56.33504104614258 L 64.60384368896484 56.33504104614258 L 64.60384368896484 47.82020568847656 L 51.83158493041992 47.82020568847656 L 51.83158493041992 35.04795837402344 Z">
+		</path>
+	</svg>
+	<svg class="Icon_awesome_user_secret" viewBox="0 0.002 84.577 96.657">
+		<path fill="rgba(0,0,0,0.698)" id="Icon_awesome_user_secret" d="M 72.47603607177734 58.20255279541016 L 76.98809051513672 46.38436889648438 C 77.74324035644531 44.4020881652832 76.28957366943359 42.28765106201172 74.15625762939453 42.28765106201172 L 63.11211013793945 42.28765106201172 C 65.18878936767578 38.71954345703125 66.47254943847656 34.62282562255859 66.47254943847656 30.20516967773438 L 66.47254943847656 30.14853286743164 C 73.87307739257812 28.67598152160645 78.55504608154297 26.54266738891602 78.55504608154297 24.16392707824707 C 78.55504608154297 21.65303421020508 73.40110015869141 19.42532730102539 65.32093811035156 17.93389320373535 C 63.58407974243164 11.74162101745605 60.22364044189453 5.511589527130127 57.6561164855957 2.30217981338501 C 55.86261749267578 0.05559297651052475 52.76648712158203 -0.6429256200790405 50.19895172119141 0.6408383250236511 L 44.98838043212891 3.246124029159546 C 43.28928375244141 4.09567403793335 41.28812026977539 4.09567403793335 39.58901977539062 3.246124029159546 L 34.37844848632812 0.6408383250236511 C 31.81092262268066 -0.6429256200790405 28.71478271484375 0.05559297651052475 26.92128753662109 2.30217981338501 C 24.37263870239258 5.511589527130127 20.99331855773926 11.74162101745605 19.25646209716797 17.93389320373535 C 11.19517803192139 19.42532730102539 6.041243553161621 21.65303421020508 6.041243553161621 24.16392707824707 C 6.041243553161621 26.54266738891602 10.72320652008057 28.67598152160645 18.12372970581055 30.14853286743164 L 18.12372970581055 30.20516967773438 C 18.12372970581055 34.62282562255859 19.40749359130859 38.71954345703125 21.48417091369629 42.28765106201172 L 10.62881183624268 42.28765106201172 C 8.457740783691406 42.28765106201172 7.004065990447998 44.49648284912109 7.853616237640381 46.49764633178711 L 12.72436809539795 57.86272811889648 C 5.153935432434082 62.26151275634766 0 70.36054992675781 0 79.74336242675781 L 0 88.20109558105469 C 0 92.86418151855469 3.794655799865723 96.65884399414062 8.457740783691406 96.65884399414062 L 76.11966705322266 96.65884399414062 C 80.78274536132812 96.65884399414062 84.57740020751953 92.86418151855469 84.57740020751953 88.20109558105469 L 84.57740020751953 79.74336242675781 C 84.57740020751953 70.60598754882812 79.70664978027344 62.67684555053711 72.47603607177734 58.20255279541016 Z M 33.22683715820312 90.61759948730469 L 25.37321853637695 54.37013626098633 L 34.73714828491211 60.41138076782227 L 39.2680778503418 67.96293640136719 L 33.22683715820312 90.61759948730469 Z M 51.35057067871094 90.61759948730469 L 45.30932235717773 67.96293640136719 L 49.84025955200195 60.41138076782227 L 59.20418167114258 54.37013626098633 L 51.35057067871094 90.61759948730469 Z M 59.22306060791016 34.26412582397461 C 58.48677825927734 36.51071548461914 57.90153884887695 38.90833282470703 56.1080436706543 40.56967544555664 C 54.20127487182617 42.32540893554688 47.04618072509766 44.79854202270508 44.02555847167969 35.84995651245117 C 43.4969482421875 34.26412582397461 41.11821365356445 34.26412582397461 40.57072067260742 35.84995651245117 C 37.36131286621094 45.32715225219727 29.9985466003418 41.96671295166016 28.48823738098145 40.56967544555664 C 26.69474220275879 38.90833282470703 26.09061813354492 36.51071548461914 25.37321853637695 34.26412582397461 C 25.22218894958496 33.79215621948242 24.18385124206543 33.18803024291992 24.18385124206543 33.16915130615234 L 24.18385124206543 31.13023376464844 C 29.52657508850098 31.80987358093262 35.69997024536133 32.22520446777344 42.30758285522461 32.22520446777344 C 48.91519165039062 32.22520446777344 55.08858108520508 31.82875061035156 60.43131256103516 31.13023376464844 L 60.43131256103516 33.16915130615234 C 60.41243362426758 33.18803024291992 59.37409210205078 33.77327346801758 59.22306060791016 34.26412582397461 Z">
+		</path>
+	</svg>
+	<svg class="Icon_material_dashboard" viewBox="7.5 7.5 45 45">
+		<path fill="rgba(0,0,0,0.702)" id="Icon_material_dashboard" d="M 7.500000476837158 32.50000381469727 L 27.49999809265137 32.50000381469727 L 27.49999809265137 7.500000476837158 L 7.500000476837158 7.500000476837158 L 7.500000476837158 32.50000381469727 Z M 7.500000476837158 52.5 L 27.49999809265137 52.5 L 27.49999809265137 37.5 L 7.500000476837158 37.5 L 7.500000476837158 52.5 Z M 32.50000381469727 52.5 L 52.5 52.5 L 52.5 27.49999809265137 L 32.50000381469727 27.49999809265137 L 32.50000381469727 52.5 Z M 32.50000381469727 7.500000476837158 L 32.50000381469727 22.5 L 52.5 22.5 L 52.5 7.500000476837158 L 32.50000381469727 7.500000476837158 Z">
+		</path>
+	</svg>
+	<svg class="Icon_material_access_alarm" viewBox="5 4.65 50 50.35">
+		<path fill="rgba(235,72,97,0.702)" id="Icon_material_access_alarm" d="M 55 14.30000019073486 L 43.5 4.65000057220459 L 40.27500152587891 8.475000381469727 L 51.77500152587891 18.125 L 55 14.30000019073486 Z M 19.70000076293945 8.475000381469727 L 16.5 4.650000095367432 L 5 14.27499961853027 L 8.225000381469727 18.10000038146973 L 19.70000076293945 8.475000381469727 Z M 31.25 20 L 27.5 20 L 27.5 35 L 39.375 42.125 L 41.25 39.04999923706055 L 31.25 33.125 L 31.25 20 Z M 30 10 C 17.57500076293945 10 7.5 20.07500076293945 7.5 32.5 C 7.5 44.92499923706055 17.54999923706055 55 30 55 C 42.42499923706055 55 52.5 44.92499923706055 52.5 32.5 C 52.5 20.07500076293945 42.42499923706055 10 30 10 Z M 30 50 C 20.32500076293945 50 12.5 42.17499923706055 12.5 32.5 C 12.5 22.82500076293945 20.32500076293945 15 30 15 C 39.67499923706055 15 47.5 22.82500076293945 47.5 32.5 C 47.5 42.17499923706055 39.67499923706055 50 30 50 Z">
+		</path>
+	</svg>
+	<svg class="Ellipse_2">
+		<ellipse fill="transparent" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Ellipse_2" rx="68.5" ry="69" cx="68.5" cy="69">
+		</ellipse>
+	</svg>
 </div>
 </body>
 </html>
