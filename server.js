@@ -14,17 +14,6 @@ app.set('views', __dirname + '/public/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-// const accountSid = 'ACf73156c3674a1e76ea44411d91bd4abb';
-// const authToken = '0a26aff0ef5fbd3b94deb0f39a90ac79';
-// const twil = require('twilio')(accountSid, authToken);
-// twil.messages
-//   .create({
-//      body: 'This is from server.js',
-//      from: '+12568889318',
-//      to: '+16504306882'
-//    })
-//   .then(message => console.log(message.status))
-
 
 //////////////
 // Database //
@@ -39,13 +28,13 @@ const client = new Client({
 });
 client.connect();
 
-client.query('SELECT * FROM Test', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
+// client.query('SELECT * FROM Test', (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   client.end();
+// });
 
 
 app.get('/',(req,res)=>{
@@ -63,7 +52,6 @@ app.get('/login',(req,res)=>{
 
 app.get('/message',(req,res)=>{
     res.render('message.html');
-    res.redirect('/login');
 });
 
 app.post('/submitted', function(req, res) {
@@ -71,7 +59,7 @@ app.post('/submitted', function(req, res) {
     var msg = req.body.msg;
     var num = req.body.num;
 
-    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num ==6504306882){
+    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
       console.log(msg, num);
 
       const accountSid = 'ACf73156c3674a1e76ea44411d91bd4abb';
