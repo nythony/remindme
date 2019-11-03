@@ -292,7 +292,7 @@ app.get('/accountsetup_simple',(req,res)=>{
 app.post('/regpass', function(req, res) {
 
     var num = "1"+req.body.num;
-    var pass = req.body.password;
+    var pass = req.body.pass;
 
     console.log("RegPass: num is " + num + " and pass is " + pass);
 
@@ -322,6 +322,7 @@ app.post('/regpass', function(req, res) {
                     console.log('NEW NUMBER SET UP');
                   }
                   client.end();
+                  res.redirect('/');
                 });
               }
             
