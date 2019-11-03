@@ -1,0 +1,41 @@
+
+<head> 
+	<link rel="stylesheet" type="text/css" href="css/panel.css" media = "screen"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<button class="openbtn" onclick="openNav()">&#9776;</button> 
+        <meta charset="utf-8">
+        <title>Home Page</title>
+
+        <nav id="navMenu"></nav>
+		<div id="mySidebar" class="sidebar">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/project">Project</a>
+        <a href="/login">Login</a>
+        <a href="/registration">Register/Sign Up</a>
+
+		</div>
+
+		<!--div id="main">
+		  <button class="openbtn" onclick="openNav()">&#9776;</button> 
+		  <h2>Collapsed Sidebar</h2>
+		  <p>Content...</p>
+		</div-->
+
+
+</head>
+
+<script>
+	function openNav() {
+	  document.getElementById("mySidebar").style.width = "250px";
+	  document.getElementById("main").style.marginLeft = "250px";
+	}
+
+	/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+	function closeNav() {
+	  document.getElementById("mySidebar").style.width = "0";
+	  document.getElementById("main").style.marginLeft = "0";
+	}
+</script>
