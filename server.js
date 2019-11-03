@@ -54,7 +54,7 @@ app.post('/sms', function(req, res) {
 
   var promise1 = new Promise(function(resolve, reject) {
     var twilio = require('twilio');
-    var twiml = new twilio.twiml.MessagingResponse();
+    var twiml = new twilio.twiml.MessagigResponse();
     twiml.message('The Robots are coming! Head for the hills!');
     res.writeHead(200, {'Content-Type': 'text/xml'});
     res.end(twiml.toString());
