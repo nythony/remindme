@@ -60,11 +60,11 @@ app.post('/sms', function(req, res) {
     
       client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
           console.log("here first");
-          // if (error){
-          //   console.log(error);
-          // }
+          if (error){
+            console.log(error);
+          }
           
-          // else{
+          else{
             for (let row of results.rows) { //Only one record
               //The client has already registered this phone number
               console.log("num should be " + row["phonenum"] + " and pass is " + row["pass"]);
@@ -88,7 +88,7 @@ app.post('/sms', function(req, res) {
                 resolve(num);
               }
 
-          //}
+          }
 
         }
 
