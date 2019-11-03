@@ -93,6 +93,18 @@ app.get('/sign_up_page',(req,res)=>{
     res.render('sign_up_page.html');
 });
 
+app.get('/log_in_page',(req,res)=>{
+    res.render('log_in_page.html');
+});
+
+app.get('/dashboard',(req,res)=>{
+    res.render('dashboard.html');
+});
+
+app.get('/create_new_reminder',(req,res)=>{
+    res.render('create_new_reminder.html');
+});
+
 
 app.listen(port,()=>{
     console.log(`Server is up on Port:${port}`);
