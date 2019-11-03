@@ -62,7 +62,7 @@ app.post('/sms', function(req, res) {
   });
 
   promise1.then(function(value) {
-    console.log(value);
+    console.log("THIS IS THE ERROR MESSAGE: " + value);
     // expected output: "foo"
   });
 
