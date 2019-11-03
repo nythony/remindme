@@ -317,12 +317,8 @@ app.post('/regpass', function(req, res) {
               var dbnum = row["phonenum"];
               var dbpass = row["pass"] 
 
-              console.log(dbnum + ' and ' + dbpass);
-              console.log(dbnum == num);
-              console.log(tyepof dbpass == undefined);
-
-              if (dbnum == num && typeof dbpass == "undefined") {
-                console.log("true");
+              if (dbnum == num && row["pass"]== 'undefined') {
+                console.log("true", pass);
 
                 client.query('UPDATE RegNum SET pass =  \''+pass+'\' WHERE phonenum =  \''+ num+'\';', (err, res) => {
                   if (err) throw err;
