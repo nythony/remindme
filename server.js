@@ -22,8 +22,8 @@ app.set('view engine', 'html');
 const { Client } = require('pg');
 
 const client = new Client({
-  //connectionString: process.env.DATABASE_URL,
-  connectionString: "postgres://yfnxgdisandwxx:4ecc65c52fdbdf08453dc7408d4e5f0de62ca2f45198e3dc39fb7b1d679be9bb@ec2-54-83-33-14.compute-1.amazonaws.com:5432/d91im41e0dhs7q",
+  connectionString: process.env.DATABASE_URL,
+  //connectionString: "postgres://yfnxgdisandwxx:4ecc65c52fdbdf08453dc7408d4e5f0de62ca2f45198e3dc39fb7b1d679be9bb@ec2-54-83-33-14.compute-1.amazonaws.com:5432/d91im41e0dhs7q",
   ssl: true,
 });
 client.connect();
@@ -275,7 +275,7 @@ app.post('/sendVerification', function(req, res) {
            from: '+12017012807',
            to: '+1' + num,
          })
-        .then(res.redirect('/accountsetup_simple')); //accountSetup.html will set up password (NEED A app.get)
+        .then(res.redirect('/accountsetup')); //accountSetup.html will set up password (NEED A app.get)
       }
     else{
       console.log("Use a team member's phone number");
@@ -283,7 +283,7 @@ app.post('/sendVerification', function(req, res) {
     }
 });
 
-app.get('/accountsetup_simple',(req,res)=>{
+app.get('/accountsetup',(req,res)=>{
     res.render('accountsetup_simple.html');
 });
 
