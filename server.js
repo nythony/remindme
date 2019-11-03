@@ -50,25 +50,63 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  console.log("req is " + req.body.From);
+  var num = req.body.From;
+  var content = req.body.Body;
 
-  var promise1 = new Promise(function(resolve, reject) {
-    var twilio = require('twilio');
-    var twiml = new twilio.twiml.MessagingResponse();
-    twiml.message('You number has been successfully registered with RemindMe!');
-    res.writeHead(200, {'Content-Type': 'text/xml'});
-    res.end(twiml.toString());
-    resolve(twiml.toString());
-  });
+  if (content == 'OK'){
+    var promise1 = new Promise(function(resolve, reject) {
+      var twilio = require('twilio');
+      var twiml = new twilio.twiml.MessagingResponse();
+      twiml.message('You number has been successfully registered with RemindMe!');
+      res.writeHead(200, {'Content-Type': 'text/xml'});
+      res.end(twiml.toString());
+      resolve(num);
+    });
+  }
+  
+  else{
+      var promise1 = new Promise(function(resolve, reject) {
+        var twilio = require('twilio');
+        var twiml = new twilio.twiml.MessagingResponse();
+        twiml.message('You have declined registration to RemindMe.');
+        res.writeHead(200, {'Content-Type': 'text/xml'});
+        res.end(twiml.toString());
+        resolve("No");
+    });
+
+  }
 
   promise1.then(function(value) {
-    console.log("THIS IS THE ERROR MESSAGE: " + value);
-    // expected output: "foo"
-  });
+    if (value == "No"){
+        console.log('Rejected Registration');
+    }
+    else{
 
+      if (value == '8572720759' || value == '7816020871' || value == '8608076016' || value == '6504306882'){
+      
+        client.query('INSERT INTO RegNum(phonenum) VALUES(\'' + value + '\');', (err, res) => {
+          if (err) throw err;
+          for (let row of res.rows) {
+            console.log('NEW NUMBER REGISTERED');
+          }
+          client.end();
+          res.redirect('/createPass');
+        });
+
+      }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
+
+    }
+  });
 
 });
 
+app.get('/createPass',(req,res)=>{
+    res.render('createPass.html');
+});
 
 
 
