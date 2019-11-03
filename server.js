@@ -294,10 +294,10 @@ app.post('/regpass', function(req, res) {
     var num = "1"+req.body.num;
     var pass = req.body.password;
 
-    console.log("num is " + num + " and pass is " + pass);
+    console.log("RegPass: num is " + num + " and pass is " + pass);
 
     if (num == '18572720759' || num == '17816020871' || num == '18608076016' || num == '16504306882'){
-      
+        console.log("active");
 
         client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
           if (error){
