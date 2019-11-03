@@ -50,7 +50,7 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  console.log("req is" + req.toString());
+  console.log("req is" + req.from());
 
   var promise1 = new Promise(function(resolve, reject) {
     var twilio = require('twilio');
