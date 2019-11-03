@@ -59,7 +59,10 @@ app.post('/sms', function(req, res) {
     var promise1 = new Promise(function(resolve, reject) {
     
       client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
-          if (error) throw error
+          console.log("here first");
+          if (error){
+            console.log(error);
+          }
           
           else{
             for (let row of results.rows) {
@@ -70,7 +73,7 @@ app.post('/sms', function(req, res) {
                 twiml.message('You have already registered your number. Please go to /accountSetup to register a password');
                 res.writeHead(200, {'Content-Type': 'text/xml'});
                 res.end(twiml.toString());
-                console.log("here first");
+                
                 resolve("No");
               }
           }
