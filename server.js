@@ -50,7 +50,7 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  var num = req.body.From;
+  var num = Number.parseInt(req.body.From, 10);
   var content = req.body.Body;
 
   console.log ("num = " + num + " and content is = " + content);
@@ -65,8 +65,9 @@ app.post('/sms', function(req, res) {
           }
           
           else{
-            for (let row of results.rows) {
+            for (let row of results.rows) { //Oly one record
               //The client has already registered this phone number
+              console.log("num should be " + row["phonenum"] + " and pass is " + row["pass"]);
               if (row["phonenum"] == num && row["pass"] == null) {
                 var twilio = require('twilio');
                 var twiml = new twilio.twiml.MessagingResponse();
@@ -76,15 +77,19 @@ app.post('/sms', function(req, res) {
                 
                 resolve("No");
               }
+
+              else{
+                var twilio = require('twilio');
+                var twiml = new twilio.twiml.MessagingResponse();
+                twiml.message('Your number has been successfully registered with RemindMe!');
+                res.writeHead(200, {'Content-Type': 'text/xml'});
+                res.end(twiml.toString());
+                console.log("here second");
+                resolve(num);
+              }
+
           }
 
-            var twilio = require('twilio');
-            var twiml = new twilio.twiml.MessagingResponse();
-            twiml.message('Your number has been successfully registered with RemindMe!');
-            res.writeHead(200, {'Content-Type': 'text/xml'});
-            res.end(twiml.toString());
-            console.log("here second");
-            resolve(num);
         }
 
       });
