@@ -83,24 +83,26 @@ app.post('/sms', function(req, res) {
         console.log('Rejected Registration');
     }
     else{
+        if (value == '+18572720759' || value == '+17816020871' || value == '+18608076016' || value == '+16504306882'){
+          var num = value.parseInt(text, 10);
 
-      if (value == '+18572720759' || value == '+17816020871' || value == '+18608076016' || value == '+16504306882'){
-      
-        client.query('INSERT INTO RegNum(phonenum) VALUES(\'' + value + '\');', (err, res) => {
-          if (err) throw err;
-          for (let row of res.rows) {
-            console.log('NEW NUMBER REGISTERED');
-          }
-          client.end();
-        });
+          console.log("Num to add to DB: " + num);
+        
+          client.query('INSERT INTO RegNum(phonenum) VALUES(\'' + num + '\');', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log('NEW NUMBER REGISTERED');
+            }
+            client.end();
+          });
 
+        }
+
+      else{
+        console.log("Use a team member's phone number");
       }
-
-    else{
-      console.log("Use a team member's phone number");
     }
 
-    }
   });
 
 });
