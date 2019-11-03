@@ -261,13 +261,44 @@ app.post('/sendVerification', function(req, res) {
            from: '+12017012807',
            to: '+1' + num,
          })
-        .then(res.redirect('/accountSetup')); //accountSetup.html will set up password (NEED A app.get)
+        .then(res.redirect('/accountsetup_simple')); //accountSetup.html will set up password (NEED A app.get)
       }
     else{
       console.log("Use a team member's phone number");
       res.redirect('/');
     }
 });
+
+app.get('/accountsetup_simple',(req,res)=>{
+    res.render('accountsetup_simple.html');
+});
+
+
+//needs verification
+// app.post('/regpass', function(req, res) {
+
+//     var num = req.body.num;
+
+//     if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
+//       console.log(num);
+
+//       const accountSid = 'AC8585ffe45f82349c213ec86fcef36696';
+//       const authToken = '38cb619ed64c90a5a4a116ac21032885';
+//       const twil = require('twilio')(accountSid, authToken);
+//       twil.messages
+//         .create({
+//            body: "In order to register your phone number, please send 'OK' and wait for a response.",
+//            from: '+12017012807',
+//            to: '+1' + num,
+//          })
+//         .then(res.redirect('/accountsetup_simple')); //accountSetup.html will set up password (NEED A app.get)
+//       }
+//     else{
+//       console.log("Use a team member's phone number");
+//       res.redirect('/');
+//     }
+// });
+
 
 app.get('/log_in_page',(req,res)=>{
     res.render('log_in_page.html');
