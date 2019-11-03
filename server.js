@@ -46,37 +46,38 @@ app.get('/login',(req,res)=>{
     res.render('login.html');
 });
 
+
+
+
 app.post('/sms', function(req, res) {
   console.log("We are getting here");
 
-  // const http = require('http');
-  // const VoiceResponse = require('twilio').twiml.VoiceResponse;
+  var promise1 = new Promise(function(resolve, reject) {
+    var twilio = require('twilio');
+    var twiml = new twilio.twiml.MessagingResponse();
+    twiml.message('The Robots are coming! Head for the hills!');
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+    resolve(twiml.toString());
+  });
 
-  // http.createServer((req, res) => {
-  //     // Create TwiML response
-  //     const twiml = new VoiceResponse();
+  promise1.then(function(value) {
+    console.log(value);
+    // expected output: "foo"
+  });
 
-  //     twiml.say('Hello from your pals at Twilio! Have fun.');
 
-  //     res.writeHead(200, {'Content-Type': 'text/xml'});
-  //     res.end(twiml.toString());
-  // })
-  // .listen(1337, '127.0.0.1');
-
-  // console.log('TwiML server running at http://127.0.0.1:1337/');
-
-  var twilio = require('twilio');
-  var twiml = new twilio.twiml.MessagingResponse();
-  twiml.message('The Robots are coming! Head for the hills!');
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
 });
+
+
+
+
 
 app.post('/fail', function(req, res) {
   console.log("Failed");
 });
 
-/*    
+    
 app.post('/registered', function(req, res) {
 
     var num = req.body.num;
@@ -89,6 +90,9 @@ app.post('/registered', function(req, res) {
       twiml.message('The Robots are coming! Head for the hills!');
       res.writeHead(200, {'Content-Type': 'text/xml'});
       res.end(twiml.toString());
+
+
+      //do query call here
     });
 
     //wait for x amount of minutes
@@ -111,7 +115,10 @@ app.post('/registered', function(req, res) {
     }
 });
 
-*/
+
+
+
+
 
 //Sending messages
 app.get('/message',(req,res)=>{
