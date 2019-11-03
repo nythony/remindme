@@ -7,7 +7,7 @@ var app = express();
 
 const port = process.env.PORT || 3000;//Dyanmic Port
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(express.static(__dirname + '/public/views'));
 
 app.set('views', __dirname + '/public/views');
@@ -50,7 +50,7 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  console.log("req is " + req.body);
+  console.log("req is " + req.body.Body);
 
   var promise1 = new Promise(function(resolve, reject) {
     var twilio = require('twilio');
