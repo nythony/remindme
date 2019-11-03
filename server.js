@@ -65,7 +65,7 @@ app.post('/sms', function(req, res) {
           }
           
           else{
-            for (let row of results.rows) { //Oly one record
+            for (let row of results.rows) { //Only one record
               //The client has already registered this phone number
               console.log("num should be " + row["phonenum"] + " and pass is " + row["pass"]);
               if (row["phonenum"] == num && row["pass"] == null) {
