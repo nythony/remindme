@@ -314,9 +314,10 @@ app.post('/regpass', function(req, res) {
               for (let row of results.rows) { //Only one record
               console.log("num in DB is " + row["phonenum"] + " and pass is " + row["pass"]);
               var dbnum = row["phonenum"];
-              var dbpass = row["pass"] 
+              var dbpass = row["pass"]
+              console.log(dbnum, dbpass)
 
-              if (dbnum == num && row["pass"]== 'undefined') {
+              if (dbnum == num && (row["pass"]== null || row["pass"] == 'undefined')) {
                 console.log("true", pass);
 
                 client.query('UPDATE RegNum SET pass =  \''+pass+'\' WHERE phonenum =  \''+ num+'\';', (err, res) => {
@@ -324,8 +325,8 @@ app.post('/regpass', function(req, res) {
                   for (let row of res.rows) {
                     console.log('NEW NUMBER SET UP');
                   }
-                  res.redirect('/');
                 });
+                res.redirect('/');
               }
             
               //The client has already registered this phone number
