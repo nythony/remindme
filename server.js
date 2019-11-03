@@ -77,7 +77,7 @@ app.post('/fail', function(req, res) {
   console.log("Failed");
 });
 
-    
+/*    
 app.post('/registered', function(req, res) {
 
     var num = req.body.num;
@@ -114,7 +114,7 @@ app.post('/registered', function(req, res) {
       res.redirect('/');
     }
 });
-
+*/
 
 
 
