@@ -229,7 +229,7 @@ app.get('/about',(req,res)=>{
     res.render('about.html');
 });
 let newdiv - document.createElement('p');
-newdiv.innerHTML(`<p style='color:red'>The average person can hold only 5 to 9 objects in their working memory 
+newdiv.innerHTML(`<p style='color:black'>The average person can hold only 5 to 9 objects in their working memory 
   at a time, so it comes as no surprise that many important tasks often slip the average person’s memory.
  \n But with RemindMe!, you never have to forget a thing again. RemindMe! allows its users to schedule SMS 
   messages to be sent at a given date and time. Its simple, user-friendly interface makes RemindMe! an accessible 
