@@ -41,15 +41,39 @@ app.get('/',(req,res)=>{
     res.render('home.html');
 });
 
+//Registering a phone number
 app.get('/login',(req,res)=>{
     res.render('login.html');
 });
 
+app.post('/registered', function(req, res) {
 
-                    app.get('/registration',(req,res)=>{
-                        res.render('registration.hbs',{pageTitle:'Registration Page',}); 
-                    });
+    var num = req.body.num;
+    var pass = req.body.pass;
 
+    //listen for incomin texts
+
+    //wait for x amount of minutes
+
+
+    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
+      
+        client.query('INSERT INTO RegNum(phonenum, pass) VALUES(\'' + num + '\', \''pass + '\');', (err, res) => {
+          if (err) throw err;
+          for (let row of res.rows) {
+            console.log('NEW NUMBER REGISTERED');
+          }
+          client.end();
+        });
+
+      }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
+});
+
+//Sending messages
 app.get('/message',(req,res)=>{
     res.render('message.html');
 });
