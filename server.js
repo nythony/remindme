@@ -308,6 +308,7 @@ app.post('/regpass', function(req, res) {
 
             if (results.rows.length == 0)
               {
+                console.log("No record");
                 res.redirect('/register_errormsg');
               }
             else{
@@ -344,7 +345,7 @@ app.post('/regpass', function(req, res) {
 });
 
 app.get('/register_errormsg',(req,res)=>{
-    res.render('log_in_page.html');
+    res.render('regiser_errormsg.html');
 });
 
 app.get('/log_in_page',(req,res)=>{
