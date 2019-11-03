@@ -50,7 +50,7 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  var num = req.body.From;
+  var num = Number.parseInt(req.body.From, 10);
   var content = req.body.Body;
 
   console.log ("num = " + num + " and content is = " + content);
