@@ -79,7 +79,7 @@ app.post('/sms', function(req, res) {
               }
             
               //The client has already registered this phone number
-              else (row["phonenum"] == num && row["pass"] == null) {
+              else {
                 var twilio = require('twilio');
                 var twiml = new twilio.twiml.MessagingResponse();
                 twiml.message('You have already registered your number. Please go to /accountSetup to register a password');
