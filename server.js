@@ -315,7 +315,7 @@ app.post('/regpass', function(req, res) {
               for (let row of results.rows) { //Only one record
               console.log("num in DB is " + row["phonenum"] + " and pass is " + row["pass"]);
 
-              if (row["phonenum"] == num && row["pass"] == null) {
+              if (row["phonenum"] == num && row["pass"] == undefined) {
 
                 client.query('UPDATE RegNum SET pass =  \''+pass+'\' WHERE phonenum =  \''+ num+'\';', (err, res) => {
                   if (err) throw err;
@@ -345,7 +345,7 @@ app.post('/regpass', function(req, res) {
 });
 
 app.get('/register_errormsg',(req,res)=>{
-    res.render('regiser_errormsg.html');
+    res.render('register_errormsg.html');
 });
 
 app.get('/log_in_page',(req,res)=>{
