@@ -7,7 +7,7 @@ var app = express();
 
 const port = process.env.PORT || 3000;//Dyanmic Port
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(express.static(__dirname + '/public/views'));
 
 app.set('views', __dirname + '/public/views');
@@ -41,15 +41,128 @@ app.get('/',(req,res)=>{
     res.render('home.html');
 });
 
+//Registering a phone number
 app.get('/login',(req,res)=>{
     res.render('login.html');
 });
 
 
-                    app.get('/registration',(req,res)=>{
-                        res.render('registration.hbs',{pageTitle:'Registration Page',}); 
-                    });
 
+
+app.post('/sms', function(req, res) {
+  var num = req.body.From;
+  var content = req.body.Body;
+
+  console.log ("num = " + num + " and content is = " + content);
+
+  if (content == 'OK'){
+    var promise1 = new Promise(function(resolve, reject) {
+      var twilio = require('twilio');
+      var twiml = new twilio.twiml.MessagingResponse();
+      twiml.message('You number has been successfully registered with RemindMe!');
+      res.writeHead(200, {'Content-Type': 'text/xml'});
+      res.end(twiml.toString());
+      resolve(num);
+    });
+  }
+  
+  else{
+      var promise1 = new Promise(function(resolve, reject) {
+        var twilio = require('twilio');
+        var twiml = new twilio.twiml.MessagingResponse();
+        twiml.message('You have declined registration to RemindMe.');
+        res.writeHead(200, {'Content-Type': 'text/xml'});
+        res.end(twiml.toString());
+        resolve("No");
+    });
+
+  }
+
+  promise1.then(function(value) {
+    if (value == "No"){
+        console.log('Rejected Registration');
+    }
+    else{
+        if (value == '+18572720759' || value == '+17816020871' || value == '+18608076016' || value == '+16504306882'){
+          var num = Number.parseInt(value, 10);
+
+          console.log("Num to add to DB: " + num);
+        
+          client.query('INSERT INTO RegNum(phonenum) VALUES(\'' + num + '\');', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log('NEW NUMBER REGISTERED');
+            }
+            client.end();
+          });
+
+        }
+
+      else{
+        console.log("Use a team member's phone number");
+      }
+    }
+
+  });
+
+});
+
+app.get('/createPass',(req,res)=>{
+    res.render('createPass.html');
+});
+
+
+
+
+app.post('/fail', function(req, res) {
+  console.log("Failed");
+  res.redirect('/');
+});
+
+/*    
+app.post('/registered', function(req, res) {
+
+    var num = req.body.num;
+    var pass = req.body.pass;
+
+//cannot post under a post
+    app.post('/sms', function(req, res) {
+      var twilio = require('twilio');
+      var twiml = new twilio.TwimlResponse();
+      twiml.message('The Robots are coming! Head for the hills!');
+      res.writeHead(200, {'Content-Type': 'text/xml'});
+      res.end(twiml.toString());
+
+
+      //do query call here
+    });
+
+    //wait for x amount of minutes
+
+
+    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
+      
+        client.query('INSERT INTO RegNum(phonenum, pass) VALUES(\'' + num + '\', \''pass + '\');', (err, res) => {
+          if (err) throw err;
+          for (let row of res.rows) {
+            console.log('NEW NUMBER REGISTERED');
+          }
+          client.end();
+        });
+
+      }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
+});
+*/
+
+
+
+
+
+//Sending messages
 app.get('/message',(req,res)=>{
     res.render('message.html');
 });
@@ -62,13 +175,13 @@ app.post('/submitted', function(req, res) {
     if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
       console.log(msg, num);
 
-      const accountSid = 'ACf73156c3674a1e76ea44411d91bd4abb';
-      const authToken = '0a26aff0ef5fbd3b94deb0f39a90ac79';
+      const accountSid = 'AC8585ffe45f82349c213ec86fcef36696';
+      const authToken = '38cb619ed64c90a5a4a116ac21032885';
       const twil = require('twilio')(accountSid, authToken);
       twil.messages
         .create({
            body: msg,
-           from: '+12568889318',
+           from: '+12017012807',
            to: '+1' + num,
          })
         .then(res.redirect('/')); //message => console.log(message.status));

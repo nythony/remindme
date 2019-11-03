@@ -1,0 +1,205 @@
+.mediaViewInfo {
+	--web-view-name: sign up page;
+	--web-view-id: sign_up_page;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: fit;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: sign_up_page;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#sign_up_page {
+	position: absolute;
+	box-sizing: border-box;
+	background: #E5E5E5;
+	width: 1920px;
+	height: 1080px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: sign up page;
+	--web-view-id: sign_up_page;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: fit;
+	--web-enable-deep-linking: true;
+}
+.Rectangle_1 {
+	position: absolute;
+	overflow: visible;
+	width: 1920px;
+	height: 229px;
+	left: 0px;
+	top: 0px;
+}
+#Remind_Me {
+	position: absolute;
+	left: 760px;
+	top: 13px;
+	overflow: visible;
+	width: 427px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 80px;
+	color: rgba(112,112,112,1);
+}
+#No_more_deja_vu_ {
+	position: absolute;
+	left: 416px;
+	top: 130px;
+	overflow: hidden;
+	width: 1109px;
+	height: 42px;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(112,112,112,1);
+}
+#Username_ {
+	position: absolute;
+	left: 507px;
+	top: 491px;
+	overflow: visible;
+	width: 307px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 60px;
+	color: rgba(112,112,112,1);
+}
+#Password_ {
+	position: absolute;
+	left: 507px;
+	top: 627px;
+	overflow: visible;
+	width: 291px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 60px;
+	color: rgba(112,112,112,1);
+}
+.Rectangle_7 {
+	position: absolute;
+	overflow: visible;
+	width: 604px;
+	height: 65px;
+	left: 861px;
+	top: 502px;
+}
+.Rectangle_8 {
+	position: absolute;
+	overflow: visible;
+	width: 604px;
+	height: 76px;
+	left: 861px;
+	top: 627px;
+}
+#Create_an_account {
+	position: absolute;
+	left: 730px;
+	top: 359px;
+	overflow: visible;
+	width: 519px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 60px;
+	color: rgba(112,112,112,1);
+}
+#Already_have_an_account___Log_ {
+	position: absolute;
+	left: 1047px;
+	top: 990px;
+	overflow: visible;
+	width: 371px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#Phone_number_ {
+	position: absolute;
+	left: 369px;
+	top: 859px;
+	overflow: visible;
+	width: 437px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 60px;
+	color: rgba(112,112,112,1);
+}
+.Rectangle_9 {
+	position: absolute;
+	overflow: visible;
+	width: 604px;
+	height: 76px;
+	left: 861px;
+	top: 859px;
+}
+#Confirm_Password_ {
+	position: absolute;
+	left: 265px;
+	top: 749px;
+	overflow: visible;
+	width: 541px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 60px;
+	color: rgba(112,112,112,1);
+}
+.Rectangle_10 {
+	position: absolute;
+	overflow: visible;
+	width: 604px;
+	height: 76px;
+	left: 861px;
+	top: 749px;
+}
+#Submit {
+	position: absolute;
+	left: 747px;
+	top: 1003px;
+	overflow: hidden;
+	width: 196px;
+	height: 56px;
+	text-align: center;
+	font-family: Symbol;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(112,112,112,1);
+}
+.Line_1 {
+	overflow: visible;
+	position: absolute;
+	width: 4px;
+	height: 105.029px;
+	left: 989.5px;
+	top: 975px;
+	transform: matrix(1,0,0,1,0,0);
+}
