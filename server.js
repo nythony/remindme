@@ -291,12 +291,12 @@ app.get('/accountsetup_simple',(req,res)=>{
 
 app.post('/regpass', function(req, res) {
 
-    var num = req.body.num;
+    var num = "1"+req.body.num;
     var pass = req.body.password;
 
     console.log("num is " + num + " and pass is " + pass);
 
-    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
+    if (num == '18572720759' || num == '17816020871' || num == '18608076016' || num == '16504306882'){
       
 
         client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
