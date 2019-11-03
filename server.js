@@ -137,7 +137,6 @@ app.post('/sms', function(req, res) {
             for (let row of res.rows) {
               console.log('NEW NUMBER REGISTERED');
             }
-            client.end();
           });
 
         }
@@ -325,7 +324,6 @@ app.post('/regpass', function(req, res) {
                   for (let row of res.rows) {
                     console.log('NEW NUMBER SET UP');
                   }
-                  client.end();
                   res.redirect('/');
                 });
               }
