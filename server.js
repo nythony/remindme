@@ -57,20 +57,45 @@ app.post('/sms', function(req, res) {
 
   if (content == 'OK'){
     var promise1 = new Promise(function(resolve, reject) {
-      var twilio = require('twilio');
-      var twiml = new twilio.twiml.MessagingResponse();
-      twiml.message('You number has been successfully registered with RemindMe!');
-      res.writeHead(200, {'Content-Type': 'text/xml'});
-      res.end(twiml.toString());
-      resolve(num);
-    });
+    
+      client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
+          console.log("here first");
+          if (error){
+            console.log(error);
+          }
+          
+          else{
+            for (let row of results.rows) {
+              //The client has already registered this phone number
+              if (row["phonenum"] == num && row["pass"] == null) {
+                var twilio = require('twilio');
+                var twiml = new twilio.twiml.MessagingResponse();
+                twiml.message('You have already registered your number. Please go to /accountSetup to register a password');
+                res.writeHead(200, {'Content-Type': 'text/xml'});
+                res.end(twiml.toString());
+                
+                resolve("No");
+              }
+          }
+
+            var twilio = require('twilio');
+            var twiml = new twilio.twiml.MessagingResponse();
+            twiml.message('Your number has been successfully registered with RemindMe!');
+            res.writeHead(200, {'Content-Type': 'text/xml'});
+            res.end(twiml.toString());
+            console.log("here second");
+            resolve(num);
+        }
+
+      });
+    })
   }
   
   else{
       var promise1 = new Promise(function(resolve, reject) {
         var twilio = require('twilio');
         var twiml = new twilio.twiml.MessagingResponse();
-        twiml.message('You have declined registration to RemindMe.');
+        twiml.message('You declined to register to RemindMe.');
         res.writeHead(200, {'Content-Type': 'text/xml'});
         res.end(twiml.toString());
         resolve("No");
@@ -106,6 +131,8 @@ app.post('/sms', function(req, res) {
   });
 
 });
+
+
 
 app.get('/createPass',(req,res)=>{
     res.render('createPass.html');
@@ -204,6 +231,37 @@ app.get('/contact',(req,res)=>{
 
 app.get('/sign_up_page',(req,res)=>{
     res.render('sign_up_page.html');
+});
+
+
+//Register a phone number.
+app.get('/register',(req,res)=>{
+    res.render('register.html');
+});
+
+
+app.post('/sendVerification', function(req, res) {
+
+    var num = req.body.num;
+
+    if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
+      console.log(num);
+
+      const accountSid = 'AC8585ffe45f82349c213ec86fcef36696';
+      const authToken = '38cb619ed64c90a5a4a116ac21032885';
+      const twil = require('twilio')(accountSid, authToken);
+      twil.messages
+        .create({
+           body: "In order to register your phone number, please send 'OK' and wait for a response.",
+           from: '+12017012807',
+           to: '+1' + num,
+         })
+        .then(res.redirect('/accountSetup')); //accountSetup.html will set up password (NEED A app.get)
+      }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
 });
 
 app.get('/log_in_page',(req,res)=>{
