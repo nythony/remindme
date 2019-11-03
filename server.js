@@ -50,7 +50,7 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  var num = req.body.From;
+  var num = "+1" + req.body.From;
   var content = req.body.Body;
 
   console.log ("num = " + num + " and content is = " + content);
@@ -96,6 +96,7 @@ app.post('/sms', function(req, res) {
         });
 
       }
+
     else{
       console.log("Use a team member's phone number");
       res.redirect('/');
