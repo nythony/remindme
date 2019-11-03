@@ -46,12 +46,28 @@ app.get('/login',(req,res)=>{
     res.render('login.html');
 });
 
+app.post('/sms', function(req, res) {
+  var twilio = require('twilio');
+  var twiml = new twilio.TwimlResponse();
+  twiml.message('The Robots are coming! Head for the hills!');
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
+/*    
 app.post('/registered', function(req, res) {
 
     var num = req.body.num;
     var pass = req.body.pass;
 
-    //listen for incomin texts
+//cannot post under a post
+    app.post('/sms', function(req, res) {
+      var twilio = require('twilio');
+      var twiml = new twilio.TwimlResponse();
+      twiml.message('The Robots are coming! Head for the hills!');
+      res.writeHead(200, {'Content-Type': 'text/xml'});
+      res.end(twiml.toString());
+    });
 
     //wait for x amount of minutes
 
@@ -72,6 +88,8 @@ app.post('/registered', function(req, res) {
       res.redirect('/');
     }
 });
+
+*/
 
 //Sending messages
 app.get('/message',(req,res)=>{
