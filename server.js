@@ -47,6 +47,7 @@ app.get('/login',(req,res)=>{
 });
 
 app.post('/sms', function(req, res) {
+  console.log("We are getting here");
   var twilio = require('twilio');
   var twiml = new twilio.TwimlResponse();
   twiml.message('The Robots are coming! Head for the hills!');
