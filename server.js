@@ -314,8 +314,10 @@ app.post('/regpass', function(req, res) {
             else{
               for (let row of results.rows) { //Only one record
               console.log("num in DB is " + row["phonenum"] + " and pass is " + row["pass"]);
+              console.log("num in input is " + num + " and pass is ")
 
               if (row["phonenum"] == num && row["pass"] == undefined) {
+                console.log("true");
 
                 client.query('UPDATE RegNum SET pass =  \''+pass+'\' WHERE phonenum =  \''+ num+'\';', (err, res) => {
                   if (err) throw err;
