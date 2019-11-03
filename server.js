@@ -50,7 +50,7 @@ app.get('/login',(req,res)=>{
 
 
 app.post('/sms', function(req, res) {
-  var num = "+1" + req.body.From;
+  var num = req.body.From;
   var content = req.body.Body;
 
   console.log ("num = " + num + " and content is = " + content);
@@ -84,7 +84,7 @@ app.post('/sms', function(req, res) {
     }
     else{
 
-      if (value == '8572720759' || value == '7816020871' || value == '8608076016' || value == '6504306882'){
+      if (value == '+18572720759' || value == '+17816020871' || value == '+18608076016' || value == '+16504306882'){
       
         client.query('INSERT INTO RegNum(phonenum) VALUES(\'' + value + '\');', (err, res) => {
           if (err) throw err;
@@ -92,14 +92,12 @@ app.post('/sms', function(req, res) {
             console.log('NEW NUMBER REGISTERED');
           }
           client.end();
-          res.redirect('/createPass');
         });
 
       }
 
     else{
       console.log("Use a team member's phone number");
-      res.redirect('/');
     }
 
     }
