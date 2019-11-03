@@ -89,6 +89,11 @@ app.get('/contact',(req,res)=>{
 });
 
 
+app.get('/sign_up_page',(req,res)=>{
+    res.render('sign_up_page.html');
+});
+
+
 app.listen(port,()=>{
     console.log(`Server is up on Port:${port}`);
 }); //DYNAMIC PORT 

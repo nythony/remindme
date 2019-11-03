@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>dashboard</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: dashboard;
+		--web-view-id: dashboard;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: dashboard;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#dashboard {
+		position: absolute;
+		box-sizing: border-box;
+		background: #E5E5E5;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		--web-view-name: dashboard;
+		--web-view-id: dashboard;
+		--web-enable-deep-linking: true;
+	}
+	.Rectangle_1 {
+		position: absolute;
+		overflow: visible;
+		width: 1920px;
+		height: 174px;
+		left: 0px;
+		top: 0px;
+	}
+	#Remind_Me {
+		position: absolute;
+		left: 160px;
+		top: 26px;
+		overflow: visible;
+		width: 427px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Symbol;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 80px;
+		color: rgba(112,112,112,1);
+	}
+	.Ellipse_1 {
+		position: absolute;
+		overflow: visible;
+		width: 123px;
+		height: 124px;
+		left: 1738px;
+		top: 26px;
+	}
+	.Rectangle_11 {
+		position: absolute;
+		overflow: visible;
+		width: 255px;
+		height: 906px;
+		left: 0px;
+		top: 174px;
+	}
+	.Path_1 {
+		overflow: visible;
+		position: absolute;
+		width: 1665px;
+		height: 906px;
+		left: 255px;
+		top: 174px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Dashboard {
+		position: absolute;
+		left: 91px;
+		top: 223px;
+		overflow: visible;
+		width: 148px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#Reminder {
+		position: absolute;
+		left: 101px;
+		top: 291px;
+		overflow: visible;
+		width: 131px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	.Image_3 {
+		position: absolute;
+		overflow: visible;
+		width: 50px;
+		height: 50px;
+		left: 22px;
+		top: 278px;
+	}
+	.Image_7 {
+		position: absolute;
+		overflow: visible;
+		width: 50px;
+		height: 50px;
+		left: 22px;
+		top: 212px;
+	}
+	#Reminders {
+		position: absolute;
+		left: 343px;
+		top: 215px;
+		overflow: visible;
+		width: 181px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#Today {
+		position: absolute;
+		left: 343px;
+		top: 560px;
+		overflow: visible;
+		width: 102px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	.Ellipse_2 {
+		position: absolute;
+		overflow: visible;
+		width: 123px;
+		height: 128px;
+		left: 1738px;
+		top: 864px;
+	}
+	#Add_a_new_reminder {
+		position: absolute;
+		left: 1639px;
+		top: 1022px;
+		overflow: visible;
+		width: 269px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	.Line_2 {
+		overflow: visible;
+		position: absolute;
+		width: 74px;
+		height: 1px;
+		left: 1773.5px;
+		top: 928.5px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Line_3 {
+		overflow: visible;
+		position: absolute;
+		width: 1px;
+		height: 81px;
+		left: 1799.5px;
+		top: 878.5px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Illustration {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 343px;
+		top: 278px;
+		overflow: visible;
+	}
+	#illustration {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Ellipse_243 {
+		position: absolute;
+		overflow: visible;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+	}
+	.Path_234 {
+		overflow: visible;
+		position: absolute;
+		width: 80px;
+		height: 136.6px;
+		left: 80px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Mom_s_Medication {
+		position: absolute;
+		left: 343px;
+		top: 473px;
+		overflow: visible;
+		width: 242px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#Illustration_A2_Group_3 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 928px;
+		top: 278px;
+		overflow: visible;
+	}
+	#illustration_A2_Group_4 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Ellipse_243_A2_Ellipse_4 {
+		position: absolute;
+		overflow: visible;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+	}
+	.Path_234_A2_Path_3 {
+		overflow: visible;
+		position: absolute;
+		width: 80px;
+		height: 136.6px;
+		left: 80px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Illustration_A2_Group_5 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 1578px;
+		top: 278px;
+		overflow: visible;
+	}
+	#illustration_A2_Group_6 {
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Ellipse_243_A2_Ellipse_5 {
+		position: absolute;
+		overflow: visible;
+		width: 160px;
+		height: 160px;
+		left: 0px;
+		top: 0px;
+	}
+	.Path_234_A2_Path_4 {
+		overflow: visible;
+		position: absolute;
+		width: 80px;
+		height: 136.6px;
+		left: 80px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#November_Workout {
+		position: absolute;
+		left: 888px;
+		top: 473px;
+		overflow: visible;
+		width: 259px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#Meal_Prep {
+		position: absolute;
+		left: 1594px;
+		top: 473px;
+		overflow: visible;
+		width: 138px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	.Rectangle_22 {
+		position: absolute;
+		overflow: visible;
+		width: 1366px;
+		height: 82px;
+		left: 343px;
+		top: 639px;
+	}
+	.Rectangle_23 {
+		position: absolute;
+		overflow: visible;
+		width: 1366px;
+		height: 97px;
+		left: 343px;
+		top: 808px;
+	}
+	#Mom_s_Medication_7_00_PM {
+		position: absolute;
+		left: 464px;
+		top: 669px;
+		overflow: visible;
+		width: 362px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	#November_Workout_5_00_PM {
+		position: absolute;
+		left: 464px;
+		top: 849px;
+		overflow: visible;
+		width: 379px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Circular Std;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(102,102,102,1);
+	}
+	.Icon_awesome_check_circle {
+		overflow: visible;
+		position: absolute;
+		width: 58.125px;
+		height: 58.125px;
+		left: 364px;
+		top: 835px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Icon_material_radio_button_unc {
+		overflow: visible;
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 364px;
+		top: 654px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+</style>
+</head>
+<body>
+<div id="dashboard" class="">
+	<svg class="Rectangle_1">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="1920" height="174">
+		</rect>
+	</svg>
+	<div id="Remind_Me">
+		<span>Remind Me</span>
+	</div>
+	<svg class="Ellipse_1">
+		<ellipse fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Ellipse_1" rx="61.5" ry="62" cx="61.5" cy="62">
+		</ellipse>
+	</svg>
+	<svg class="Rectangle_11">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_11" rx="0" ry="0" x="0" y="0" width="255" height="906">
+		</rect>
+	</svg>
+	<svg class="Path_1" viewBox="0 0 1665 906">
+		<path fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Path_1" d="M 0 0 L 1665 0 L 1665 906 L 0 906 L 0 0 Z">
+		</path>
+	</svg>
+	<div id="Dashboard">
+		<span>Dashboard</span>
+	</div>
+	<div id="Reminder">
+		<span>Reminder</span>
+	</div>
+	<svg class="Image_3">
+		<pattern elementId="Image_3_A2_Rectangle_4" id="Image_3_A2_Rectangle_4_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="Image_3_A2_Rectangle_4_pattern.png" xlink:href="Image_3_A2_Rectangle_4_pattern.png"></image>
+		</pattern>
+		<rect fill="url(#Image_3_A2_Rectangle_4_pattern)" id="Image_3" rx="0" ry="0" x="0" y="0" width="50" height="50">
+		</rect>
+	</svg>
+	<svg class="Image_7">
+		<pattern elementId="Image_7_A2_Rectangle_6" id="Image_7_A2_Rectangle_6_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="Image_7_A2_Rectangle_6_pattern.png" xlink:href="Image_7_A2_Rectangle_6_pattern.png"></image>
+		</pattern>
+		<rect fill="url(#Image_7_A2_Rectangle_6_pattern)" id="Image_7" rx="0" ry="0" x="0" y="0" width="50" height="50">
+		</rect>
+	</svg>
+	<div id="Reminders">
+		<span>Reminders</span>
+	</div>
+	<div id="Today">
+		<span>Today</span>
+	</div>
+	<svg class="Ellipse_2">
+		<ellipse fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Ellipse_2" rx="61.5" ry="64" cx="61.5" cy="64">
+		</ellipse>
+	</svg>
+	<div id="Add_a_new_reminder">
+		<span>Add a new reminder</span>
+	</div>
+	<svg class="Line_2" viewBox="0 0 74 1">
+		<path fill="transparent" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_2" d="M 0 0 L 74 0">
+		</path>
+	</svg>
+	<svg class="Line_3" viewBox="0 0 1 81">
+		<path fill="transparent" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_3" d="M 0 0 L 0 81">
+		</path>
+	</svg>
+	<div id="Illustration">
+		<div id="illustration">
+			<svg class="Ellipse_243">
+				<ellipse fill="rgba(188,224,253,1)" id="Ellipse_243" rx="80" ry="80" cx="80" cy="80">
+				</ellipse>
+			</svg>
+			<svg class="Path_234" viewBox="80 0 80 136.6">
+				<path fill="rgba(38,153,251,1)" id="Path_234" d="M 80 0 L 80 80 L 136.6000061035156 136.6000061035156 C 151 122.0999984741211 160 102.0999984741211 160 80 C 160 35.79999923706055 124.1999969482422 0 80 0 Z">
+				</path>
+			</svg>
+		</div>
+	</div>
+	<div id="Mom_s_Medication">
+		<span>Mom’s Medication</span>
+	</div>
+	<div id="Illustration_A2_Group_3">
+		<div id="illustration_A2_Group_4">
+			<svg class="Ellipse_243_A2_Ellipse_4">
+				<ellipse fill="rgba(188,224,253,1)" id="Ellipse_243_A2_Ellipse_4" rx="80" ry="80" cx="80" cy="80">
+				</ellipse>
+			</svg>
+			<svg class="Path_234_A2_Path_3" viewBox="80 0 80 136.6">
+				<path fill="rgba(38,153,251,1)" id="Path_234_A2_Path_3" d="M 80 0 L 80 80 L 136.6000061035156 136.6000061035156 C 151 122.0999984741211 160 102.0999984741211 160 80 C 160 35.79999923706055 124.1999969482422 0 80 0 Z">
+				</path>
+			</svg>
+		</div>
+	</div>
+	<div id="Illustration_A2_Group_5">
+		<div id="illustration_A2_Group_6">
+			<svg class="Ellipse_243_A2_Ellipse_5">
+				<ellipse fill="rgba(188,224,253,1)" id="Ellipse_243_A2_Ellipse_5" rx="80" ry="80" cx="80" cy="80">
+				</ellipse>
+			</svg>
+			<svg class="Path_234_A2_Path_4" viewBox="80 0 80 136.6">
+				<path fill="rgba(38,153,251,1)" id="Path_234_A2_Path_4" d="M 80 0 L 80 80 L 136.6000061035156 136.6000061035156 C 151 122.0999984741211 160 102.0999984741211 160 80 C 160 35.79999923706055 124.1999969482422 0 80 0 Z">
+				</path>
+			</svg>
+		</div>
+	</div>
+	<div id="November_Workout">
+		<span>November Workout</span>
+	</div>
+	<div id="Meal_Prep">
+		<span>Meal Prep</span>
+	</div>
+	<svg class="Rectangle_22">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_22" rx="0" ry="0" x="0" y="0" width="1366" height="82">
+		</rect>
+	</svg>
+	<svg class="Rectangle_23">
+		<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_23" rx="0" ry="0" x="0" y="0" width="1366" height="97">
+		</rect>
+	</svg>
+	<div id="Mom_s_Medication_7_00_PM">
+		<span>Mom’s Medication 7:00 PM</span>
+	</div>
+	<div id="November_Workout_5_00_PM">
+		<span>November Workout 5:00 PM</span>
+	</div>
+	<svg class="Icon_awesome_check_circle" viewBox="0.938 0.938 58.125 58.125">
+		<path fill="rgba(0,0,0,1)" id="Icon_awesome_check_circle" d="M 59.0625 30 C 59.0625 46.05081939697266 46.05081939697266 59.0625 30 59.0625 C 13.94918060302734 59.0625 0.9375 46.05081939697266 0.9375 30 C 0.9375 13.94918060302734 13.94917964935303 0.9375 30 0.9375 C 46.05081939697266 0.9375 59.0625 13.94917964935303 59.0625 30 Z M 26.63835906982422 45.38835906982422 L 48.20085906982422 23.82585906982422 C 48.93304824829102 23.09367179870605 48.93304824829102 21.90644454956055 48.20085906982422 21.17425727844238 L 45.54925918579102 18.52265548706055 C 44.81707000732422 17.79034996032715 43.62984466552734 17.79034996032715 42.89754104614258 18.52265548706055 L 25.3125 36.10757827758789 L 17.10246086120605 27.89753913879395 C 16.37027359008789 27.16535186767578 15.18304634094238 27.16535186767578 14.4507417678833 27.89753913879395 L 11.79913997650146 30.54914093017578 C 11.0669527053833 31.28132820129395 11.0669527053833 32.46855545043945 11.79913997650146 33.20074081420898 L 23.98664093017578 45.38824081420898 C 24.71894645690918 46.12054443359375 25.90605545043945 46.12054443359375 26.63835906982422 45.38835906982422 Z">
+		</path>
+	</svg>
+	<svg class="Icon_material_radio_button_unc" viewBox="5 5 50 50">
+		<path fill="rgba(0,0,0,1)" id="Icon_material_radio_button_unc" d="M 30 5 C 16.20000076293945 5 5 16.20000076293945 5 30 C 5 43.79999923706055 16.20000076293945 55 30 55 C 43.79999923706055 55 55 43.79999923706055 55 30 C 55 16.20000076293945 43.79999923706055 5 30 5 Z M 30 50 C 18.95000076293945 50 10 41.04999923706055 10 30 C 10 18.95000076293945 18.95000076293945 10 30 10 C 41.04999923706055 10 50 18.95000076293945 50 30 C 50 41.04999923706055 41.04999923706055 50 30 50 Z">
+		</path>
+	</svg>
+</div>
+</body>
+</html>
