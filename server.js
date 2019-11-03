@@ -84,7 +84,7 @@ app.post('/sms', function(req, res) {
     }
     else{
         if (value == '+18572720759' || value == '+17816020871' || value == '+18608076016' || value == '+16504306882'){
-          var num = value.parseInt(value, 10);
+          var num = Number.parseInt(value, 10);
 
           console.log("Num to add to DB: " + num);
         
