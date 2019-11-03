@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<script>
-var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'matching';
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'not matching';
-  }
-}
-</script>
-
 <body>
 
 
@@ -28,11 +15,7 @@ var check = function() {
   <label for="pass"><b>Create a password: </b></label>
   <input type="password" placeholder="Password" name="pass" id="password" onkeyup='check();' required>
 
- <br>
-  
-  <label for="pass2"><b>Confirm your password: </b></label>
-  <input type="password" placeholder="Repeat Password" name="pass2" id="confirm_password" onkeyup='check();' required>
- <br> 
+
   <input type="submit" value="Submit">
 </form> 
 
