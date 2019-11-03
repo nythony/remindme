@@ -22,8 +22,8 @@ app.set('view engine', 'html');
 const { Client } = require('pg');
 
 const client = new Client({
-  //connectionString: process.env.DATABASE_URL,
-  connectionString: "postgres://yfnxgdisandwxx:4ecc65c52fdbdf08453dc7408d4e5f0de62ca2f45198e3dc39fb7b1d679be9bb@ec2-54-83-33-14.compute-1.amazonaws.com:5432/d91im41e0dhs7q",
+  connectionString: process.env.DATABASE_URL,
+  //connectionString: "postgres://yfnxgdisandwxx:4ecc65c52fdbdf08453dc7408d4e5f0de62ca2f45198e3dc39fb7b1d679be9bb@ec2-54-83-33-14.compute-1.amazonaws.com:5432/d91im41e0dhs7q",
   ssl: true,
 });
 client.connect();
@@ -65,20 +65,9 @@ app.post('/sms', function(req, res) {
           }
           
           else{
-            for (let row of results.rows) { //Oly one record
-              //The client has already registered this phone number
-              console.log("num should be " + row["phonenum"] + " and pass is " + row["pass"]);
-              if (row["phonenum"] == num && row["pass"] == null) {
-                var twilio = require('twilio');
-                var twiml = new twilio.twiml.MessagingResponse();
-                twiml.message('You have already registered your number. Please go to /accountSetup to register a password');
-                res.writeHead(200, {'Content-Type': 'text/xml'});
-                res.end(twiml.toString());
-                
-                resolve("No");
-              }
 
-              else{
+            if (results.rows.length == 0)
+              {
                 var twilio = require('twilio');
                 var twiml = new twilio.twiml.MessagingResponse();
                 twiml.message('Your number has been successfully registered with RemindMe!');
@@ -87,6 +76,31 @@ app.post('/sms', function(req, res) {
                 console.log("here second");
                 resolve(num);
               }
+            else{
+              for (let row of results.rows) { //Only one record
+              console.log("num should be " + row["phonenum"] + " and pass is " + row["pass"]);
+
+              if (row["phonenum"] != num && row["pass"] != null) {
+                var twilio = require('twilio');
+                var twiml = new twilio.twiml.MessagingResponse();
+                twiml.message('Your number has been successfully registered with RemindMe!');
+                res.writeHead(200, {'Content-Type': 'text/xml'});
+                res.end(twiml.toString());
+                console.log("here second");
+                resolve(num);
+              }
+            
+              //The client has already registered this phone number
+              else {
+                var twilio = require('twilio');
+                var twiml = new twilio.twiml.MessagingResponse();
+                twiml.message('You have already registered your number. Please go to /accountSetup to register a password');
+                res.writeHead(200, {'Content-Type': 'text/xml'});
+                res.end(twiml.toString());
+                
+                resolve("No");
+              }
+            }
 
           }
 
@@ -123,7 +137,6 @@ app.post('/sms', function(req, res) {
             for (let row of res.rows) {
               console.log('NEW NUMBER REGISTERED');
             }
-            client.end();
           });
 
         }
@@ -229,6 +242,7 @@ app.get('/about',(req,res)=>{
     res.render('about.html');
 });
 
+
 app.get('/contact',(req,res)=>{
     res.render('contact.html');
 });
@@ -261,7 +275,7 @@ app.post('/sendVerification', function(req, res) {
            from: '+12017012807',
            to: '+1' + num,
          })
-        .then(res.redirect('/accountsetup_simple')); //accountSetup.html will set up password (NEED A app.get)
+        .then(res.redirect('/accountsetup')); //accountSetup.html will set up password (NEED A app.get)
       }
     else{
       console.log("Use a team member's phone number");
@@ -269,36 +283,73 @@ app.post('/sendVerification', function(req, res) {
     }
 });
 
-app.get('/accountsetup_simple',(req,res)=>{
+app.get('/accountsetup',(req,res)=>{
     res.render('accountsetup_simple.html');
 });
 
 
-//needs verification
-// app.post('/regpass', function(req, res) {
 
-//     var num = req.body.num;
+app.post('/regpass', function(req, res) {
 
-//     if (num == '8572720759' || num == '7816020871' || num == '8608076016' || num == '6504306882'){
-//       console.log(num);
+    var num = "1"+req.body.num;
+    var pass = req.body.pass;
 
-//       const accountSid = 'AC8585ffe45f82349c213ec86fcef36696';
-//       const authToken = '38cb619ed64c90a5a4a116ac21032885';
-//       const twil = require('twilio')(accountSid, authToken);
-//       twil.messages
-//         .create({
-//            body: "In order to register your phone number, please send 'OK' and wait for a response.",
-//            from: '+12017012807',
-//            to: '+1' + num,
-//          })
-//         .then(res.redirect('/accountsetup_simple')); //accountSetup.html will set up password (NEED A app.get)
-//       }
-//     else{
-//       console.log("Use a team member's phone number");
-//       res.redirect('/');
-//     }
-// });
+    console.log("RegPass: num is " + num + " and pass is " + pass);
 
+    if (num == '18572720759' || num == '17816020871' || num == '18608076016' || num == '16504306882'){
+        console.log("active");
+
+        client.query("SELECT * FROM RegNum WHERE phonenum = " + num + ";", (error, results) => {
+          if (error){
+            console.log(error);
+          }
+          
+          else{
+
+            if (results.rows.length == 0)
+              {
+                console.log("No record");
+                res.redirect('/register_errormsg');
+              }
+            else{
+              for (let row of results.rows) { //Only one record
+              console.log("num in DB is " + row["phonenum"] + " and pass is " + row["pass"]);
+              var dbnum = row["phonenum"];
+              var dbpass = row["pass"]
+              console.log(dbnum, dbpass)
+
+              if (dbnum == num && (row["pass"]== null || row["pass"] == 'undefined')) {
+                console.log("true", pass);
+
+                client.query('UPDATE RegNum SET pass =  \''+pass+'\' WHERE phonenum =  \''+ num+'\';', (err, res) => {
+                  if (err) throw err;
+                  for (let row of res.rows) {
+                    console.log('NEW NUMBER SET UP');
+                  }
+                });
+                res.redirect('/');
+              }
+            
+              //The client has already registered this phone number
+              else {
+                res.redirect('/register_errormsg')
+              }
+            }
+
+          }
+        }
+
+      })
+    }
+    else{
+      console.log("Use a team member's phone number");
+      res.redirect('/');
+    }
+});
+
+app.get('/register_errormsg',(req,res)=>{
+    res.render('register_errormsg.html');
+});
 
 app.get('/log_in_page',(req,res)=>{
     res.render('log_in_page.html');
